@@ -47,7 +47,9 @@ class AliYunDetector:
         else:
             for tag_a in tags:
                 url = urljoin(resp.url, tag_a.attrs["href"])
-                if self.vul_url != url:
+                if self.vul_url == url:
+                    break
+                else:
                     tag_date, tag_title = tag_a.find("div")
                     self.notice(
                         {
