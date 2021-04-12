@@ -1,0 +1,3 @@
+webhook = 'https://oapi.dingtalk.com/robot/send?access_token={token}'
+secret = '{secret}'
+timing = 3 * 60
