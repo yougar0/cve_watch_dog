@@ -1,12 +1,11 @@
 # CVE监控
 
-互联网上新增cve POC监测工具，目前完成了对github上关键词的监控，通过钉钉机器人发送通知到钉钉群。
+互联网上新增cve POC监测工具，目前完成了对github、阿里云的监控，通过钉钉机器人发送通知到钉钉群。
 
 ## 未来计划
 
 * seebug
 * nvd
-* 阿里先知
 
 ## 安装方法
 
@@ -21,3 +20,7 @@ cp config.py.example config.py
 # 修改配置文件 config.py
 bash start.sh
 ```
+
+## 致谢
+
+https://github.com/oxff644/detector

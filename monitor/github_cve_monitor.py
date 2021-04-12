@@ -1,8 +1,9 @@
 import urllib
 import requests,re,time
-import dingtalkchatbot.chatbot as cb
 import datetime
 import config
+from ding_message import send_ding
+from aliyun_cve_monitor import AliYunDetector
 
 
 def getNews():
@@ -20,17 +21,13 @@ def getNews():
         print (e, 'github链接不通')
 
 
-def send_ding(text, msg):
-    ding = cb.DingtalkChatbot(config.webhook, secret=config.secret)
-    ding.send_text(msg='{}\r\n{}'.format(text, msg), is_at_all=False)
-
-
 def sendNews():
     text = '漏洞描述:{},漏洞URL:{}'
     title = 'Github有新的CVE送达'
     print('cve 监控中 ...')
     cve_total_count, cve_descriptions, cve_urls = getNews()
     total_count = int(cve_total_count) - 1
+    detector =  AliYunDetector()
     try:
         while True:
             if total_count != int(cve_total_count):
@@ -41,6 +38,7 @@ def sendNews():
                     print(info)
                     send_ding(title, info)
                 total_count = int(cve_total_count)
+            detector.get_data()
             time.sleep(config.timing)
             cve_total_count, cve_descriptions, cve_urls = getNews()
 
