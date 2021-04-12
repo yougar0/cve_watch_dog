@@ -8,9 +8,7 @@ COPY pip.conf /root/.pip/
 
 COPY sources.list /etc/apt/
 
-RUN apt update && apt install python3 python3-pip -y
-
-RUN pip3 install pip --upgrade
+RUN apt update && apt install python3 python3-pip vim -y
 
 COPY monitor monitor
 
