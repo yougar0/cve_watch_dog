@@ -21,6 +21,10 @@ cp config.py.example config.py
 bash start.sh
 ```
 
-## 致谢
+## 效果展示
+
+![](images/cve_monitor_screenshot.png)
+
+## 致谢项目
 
 https://github.com/oxff644/detector
